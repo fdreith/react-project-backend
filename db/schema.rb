@@ -12,6 +12,17 @@
 
 ActiveRecord::Schema.define(version: 2020_05_09_210032) do
 
+  create_table "comments", force: :cascade do |t|
+    t.integer "task_id", null: false
+    t.integer "employee_id", null: false
+    t.integer "supervisor_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["employee_id"], name: "index_comments_on_employee_id"
+    t.index ["supervisor_id"], name: "index_comments_on_supervisor_id"
+    t.index ["task_id"], name: "index_comments_on_task_id"
+  end
+
   create_table "departments", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -50,22 +61,11 @@ ActiveRecord::Schema.define(version: 2020_05_09_210032) do
     t.index ["supervisor_id"], name: "index_tasks_on_supervisor_id"
   end
 
-  create_table "tcomments", force: :cascade do |t|
-    t.integer "task_id", null: false
-    t.integer "employee_id", null: false
-    t.integer "supervisor_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["employee_id"], name: "index_tcomments_on_employee_id"
-    t.index ["supervisor_id"], name: "index_tcomments_on_supervisor_id"
-    t.index ["task_id"], name: "index_tcomments_on_task_id"
-  end
-
+  add_foreign_key "comments", "employees"
+  add_foreign_key "comments", "supervisors"
+  add_foreign_key "comments", "tasks"
   add_foreign_key "employees", "departments"
   add_foreign_key "supervisors", "departments"
   add_foreign_key "tasks", "employees"
   add_foreign_key "tasks", "supervisors"
-  add_foreign_key "tcomments", "employees"
-  add_foreign_key "tcomments", "supervisors"
-  add_foreign_key "tcomments", "tasks"
 end
