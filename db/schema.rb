@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_05_09_210032) do
 
   create_table "comments", force: :cascade do |t|
+    t.string "content"
     t.integer "task_id", null: false
     t.integer "employee_id", null: false
     t.integer "supervisor_id", null: false

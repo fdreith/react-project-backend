@@ -28,3 +28,15 @@ ed = Employee.create(name: "Ed", email: "e@e.com", password: "password", departm
 hadley = Employee.create(name: "Hadley", email: "h@h.com", password: "password", department_id: taproom)
 natasha = Employee.create(name: "Natasha", email: "b@b.com", password: "password", department_id: taproom)
 
+# Tasks
+cooler = Task.create(content: "clean the key cooler", due_date: Date.tomorrow(), employee_id: natasha, supervisor_id: kipp)
+fill = Task.create(content: "fill kegs", due_date: Date.tomorrow(), employee_id: cory, supervisor_id: scott)
+some = Task.create(content: "schedule social media through next week", due_date: Date.tomorrow(), employee_id: michelle, supervisor_id: frank)
+plan = Task.create(content: "plan launch", due_date: Date.tomorrow(), supervisor_id: frank)
+design = Task.create(content: "finish can design", due_date: Date.tomorrow(), employee_id: michelle, supervisor_id: frank)
+eval = Task.create(content: "finish my self evaluation", due_date: Date.tomorrow(), employee_id: michelle)
+
+# comments
+Comment.new(content: "I'm half way through", task_id: design, employee_id: michelle)
+Comment.new(content: "great!", task_id: design, supervisor_id: frank)
+
