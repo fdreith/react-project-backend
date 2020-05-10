@@ -4,8 +4,8 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.string :content
       t.date :due_date
       t.boolean :completed, default: false
-      t.belongs_to :employee, null: false, foreign_key: true
-      t.belongs_to :supervisor, null: false, foreign_key: true
+      t.belongs_to :employee, foreign_key: true
+      t.belongs_to :supervisor, foreign_key: true
 
       t.timestamps
     end
