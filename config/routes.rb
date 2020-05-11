@@ -15,12 +15,12 @@ Rails.application.routes.draw do
     namespace :v1 do 
       resources :comments
       resources :tasks
-      resources :supervisors
+      resources :departments
       namespace :employees do 
         resources :employees
       end
       namespace :supervisors do 
-        resources :departments
+        resources :supervisors
       end
     end
   end
