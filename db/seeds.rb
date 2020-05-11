@@ -37,6 +37,6 @@ design = Task.create(content: "finish can design", due_date: Date.tomorrow(), em
 eval = Task.create(content: "finish my self evaluation", due_date: Date.tomorrow(), employee_id: michelle.id)
 
 # comments
-Comment.new(content: "I'm half way through", task_id: design.id, employee_id: michelle.id)
-Comment.new(content: "great!", task_id: design.id, supervisor_id: frank.id)
+Comment.create(content: "I'm half way through", task_id: design.id, employee_id: michelle.id)
+Comment.create(content: "great!", task_id: design.id, supervisor_id: frank.id)
 
