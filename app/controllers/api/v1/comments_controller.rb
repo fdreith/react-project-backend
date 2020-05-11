@@ -1,51 +1,51 @@
 class Api::V1::CommentsController < ApplicationController
-  before_action :set_tcomment, only: [:show, :update, :destroy]
+  before_action :set_comment, only: [:show, :update, :destroy]
 
-  # GET /tcomments
+  # GET /comments
   def index
-    @tcomments = Tcomment.all
+    @comments = Comment.all
 
-    render json: @tcomments
+    render json: @comments
   end
 
-  # GET /tcomments/1
+  # GET /comments/1
   def show
-    render json: @tcomment
+    render json: @comment
   end
 
-  # POST /tcomments
+  # POST /comments
   def create
-    @tcomment = Tcomment.new(tcomment_params)
+    @comment = Comment.new(comment_params)
 
-    if @tcomment.save
-      render json: @tcomment, status: :created, location: @tcomment
+    if @comment.save
+      render json: @comment, status: :created, location: @comment
     else
-      render json: @tcomment.errors, status: :unprocessable_entity
+      render json: @comment.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /tcomments/1
+  # PATCH/PUT /comments/1
   def update
-    if @tcomment.update(tcomment_params)
-      render json: @tcomment
+    if @comment.update(comment_params)
+      render json: @comment
     else
-      render json: @tcomment.errors, status: :unprocessable_entity
+      render json: @comment.errors, status: :unprocessable_entity
     end
   end
 
-  # DELETE /tcomments/1
+  # DELETE /comments/1
   def destroy
-    @tcomment.destroy
+    @comment.destroy
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_tcomment
-      @tcomment = Tcomment.find(params[:id])
+    def set_comment
+      @comment = Comment.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
-    def tcomment_params
-      params.require(:tcomment).permit(:task_id, :employee_id, :supervisor_id)
+    def comment_params
+      params.require(:comment).permit(:task_id, :employee_id, :supervisor_id)
     end
 end
