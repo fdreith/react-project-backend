@@ -5,4 +5,8 @@ class TaskSerializer
   belongs_to :supervisor, optional: true
   has_many :comments
 
+  attribute :employee do |task|
+    task.employee.as_json
+  end
+
 end
