@@ -1,7 +1,7 @@
 class Api::V1::Employees::EmployeesSessionsController < ApplicationController
   def create
+    @employee = Employee.find_by(email: params[:employees_session][:email])
     byebug
-    @employee = Employee.find_by(email: params[:session][:email])
     if @employee && @employee.authenticate(params[:session][:password])
       session[:employee_id] = @employee.id
       render json: EmployeeSerializer.new(@employee), status: :ok
