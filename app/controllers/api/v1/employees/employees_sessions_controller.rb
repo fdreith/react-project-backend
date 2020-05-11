@@ -1,4 +1,4 @@
-class Api::V1::EmployeeSessionsController < ApplicationController
+class Api::V1::Employees::EmployeeSessionsController < ApplicationController
   def create
     binding.pry
     byebug

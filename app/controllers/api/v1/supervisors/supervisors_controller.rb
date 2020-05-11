@@ -1,4 +1,4 @@
-class Api::V1::SupervisorsController < ApplicationController
+class Api::V1::Supervisors::SupervisorsController < ApplicationController
   before_action :set_supervisor, only: [:show, :update, :destroy]
 
   # GET /supervisors
