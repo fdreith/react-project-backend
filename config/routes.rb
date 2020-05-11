@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  post "/api/v1/employees/login", to: "api/v1/employees/sessions#create"
-  post "/api/v1/employees/signup", to: "api/v1/employees/users#create"
-  delete "/api/v1/employees/logout", to: "api/v1/employees/sessions#destroy"
-  get "/api/v1/employees/get_current_employee", to: "api/v1/employees/sessions#get_current_employee"
+  post "/api/v1/employees/login", to: "api/v1/employees/employees_sessions#create"
+  post "/api/v1/employees/signup", to: "api/v1/employees/employees#create"
+  delete "/api/v1/employees/logout", to: "api/v1/employees/employees_sessions#destroy"
+  get "/api/v1/employees/get_current_employee", to: "api/v1/employees/employees_sessions#get_current_employee"
 
-  post "/api/v1/supervisors/login", to: "api/v1/supervisors/sessions#create"
-  post "/api/v1/supervisors/signup", to: "api/v1/supervisors/users#create"
-  delete "/api/v1/supervisors/logout", to: "api/v1/supervisors/sessions#destroy"
-  get "/api/v1/supervisors/get_current_supervisor", to: "api/v1/supervisors/sessions#get_current_supervisor"
+  post "/api/v1/supervisors/login", to: "api/v1/supervisors/supersivors_sessions#create"
+  post "/api/v1/supervisors/signup", to: "api/v1/supervisors/supervisors#create"
+  delete "/api/v1/supervisors/logout", to: "api/v1/supervisors/supervisors_sessions#destroy"
+  get "/api/v1/supervisors/get_current_supervisor", to: "api/v1/supervisors/supervisors_sessions#get_current_supervisor"
 
 
 # api is websitedomain.come/api/v1/resource

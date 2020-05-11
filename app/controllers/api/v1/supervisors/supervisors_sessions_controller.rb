@@ -1,4 +1,4 @@
-class Api::V1::Supervisors::SupervisorSessionsController < ApplicationController
+class Api::V1::Supervisors::SupervisorsSessionsController < ApplicationController
   def create
     @supervisor = Supervisor.find_by(email: params[:session][:email])
     if @supervisor && @supervisor.authenticate(params[:session][:password])

@@ -1,9 +1,14 @@
 class ApplicationController < ActionController::API
 
   def current_user
-    byebug
     binding.pry
-    Employee.find_by(id: session[:employee_id])
+    byebug
+    if session[:employee_id]
+      Employee.find_by(id: session[:employee_id])
+    else session[:supervisor_id]
+      Supervisor.find_by(id: session[:supervisor_id])
+    end
+
   end
 
   def logged_in?

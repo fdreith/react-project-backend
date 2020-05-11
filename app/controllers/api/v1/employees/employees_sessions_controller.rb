@@ -1,6 +1,5 @@
-class Api::V1::Employees::EmployeeSessionsController < ApplicationController
+class Api::V1::Employees::EmployeesSessionsController < ApplicationController
   def create
-    binding.pry
     byebug
     @employee = Employee.find_by(email: params[:session][:email])
     if @employee && @employee.authenticate(params[:session][:password])
@@ -8,8 +7,9 @@ class Api::V1::Employees::EmployeeSessionsController < ApplicationController
       render json: EmployeeSerializer.new(@employee), status: :ok
     else
       render json:{
-        error: "Invalid Credentials"
+        error: "Invalid Login"
       }
+    end
   end
 
   def get_current_employee
