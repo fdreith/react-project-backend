@@ -4,5 +4,4 @@ class Supervisor < ApplicationRecord
   has_many :tasks
   has_many :employees, through: :tasks
 
-  attr_accessor :id, :name, :email, :department_id
 end
