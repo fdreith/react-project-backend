@@ -11,32 +11,33 @@ production = Department.create(name: "Production")
 taproom = Department.create(name: "Taproom")
 
 # SUPERVISORS
-frank = Supervisor.create(name: "Frank", email: "f@f.com", password_digest: "password", department_id: marketing.id)
-scott = Supervisor.create(name: "Scott", email: "s@s.com", password_digest: "password", department_id: production.id)
-kipp = Supervisor.create(name: "Kipp", email: "k@k.com", password_digest: "password", department_id: taproom.id)
+frank = User.create(name: "Frank", email: "f@f.com", password_digest: "password", department_id: marketing.id, supervisor: true)
+scott = User.create(name: "Scott", email: "s@s.com", password_digest: "password", department_id: production.id, supervisor: true)
+kipp = User.create(name: "Kipp", email: "k@k.com", password_digest: "password", department_id: taproom.id, supervisor: true)
 
 # EMPLOYEES
-michelle = Employee.create(name: "Michelle", email: "m@m.com", password_digest: "password", department_id: marketing.id)
-lauren = Employee.create(name: "Lauren", email: "l@l.com", password_digest: "password", department_id: marketing.id)
-tara = Employee.create(name: "Tara", email: "t@t.com", password_digest: "password", department_id: marketing.id)
+michelle = User.create(name: "Michelle", email: "m@m.com", password_digest: "password", department_id: marketing.id)
+lauren = User.create(name: "Lauren", email: "l@l.com", password_digest: "password", department_id: marketing.id)
+tara = User.create(name: "Tara", email: "t@t.com", password_digest: "password", department_id: marketing.id)
 
-alex = Employee.create(name: "Alex", email: "a@a.com", password_digest: "password", department_id: production.id)
-cory = Employee.create(name: "Cory", email: "c@c.com", password_digest: "password", department_id: production.id)
-nick = Employee.create(name: "Nick", email: "n@n.com", password_digest: "password", department_id: production.id)
+alex = User.create(name: "Alex", email: "a@a.com", password_digest: "password", department_id: production.id)
+cory = User.create(name: "Cory", email: "c@c.com", password_digest: "password", department_id: production.id)
+nick = User.create(name: "Nick", email: "n@n.com", password_digest: "password", department_id: production.id)
 
-ed = Employee.create(name: "Ed", email: "e@e.com", password_digest: "password", department_id: taproom.id)
-hadley = Employee.create(name: "Hadley", email: "h@h.com", password_digest: "password", department_id: taproom.id)
-breanna = Employee.create(name: "Breanna", email: "b@b.com", password_digest: "password", department_id: taproom.id)
+ed = User.create(name: "Ed", email: "e@e.com", password_digest: "password", department_id: taproom.id)
+hadley = User.create(name: "Hadley", email: "h@h.com", password_digest: "password", department_id: taproom.id)
+breanna = User.create(name: "Breanna", email: "b@b.com", password_digest: "password", department_id: taproom.id)
 
 # Tasks
-cooler = Task.create(content: "clean the key cooler", due_date: Date.tomorrow(), employee_id: hadley.id, supervisor_id: kipp.id)
-fill = Task.create(content: "fill kegs", due_date: Date.tomorrow(), employee_id: cory.id, supervisor_id: scott.id)
-some = Task.create(content: "schedule social media through next week", due_date: Date.tomorrow(), employee_id: michelle.id, supervisor_id: frank.id)
-plan = Task.create(content: "plan launch", due_date: Date.tomorrow(), supervisor_id: frank.id)
-design = Task.create(content: "finish can design", due_date: Date.tomorrow(), employee_id: michelle.id, supervisor_id: frank.id)
-eval = Task.create(content: "finish my self evaluation", due_date: Date.tomorrow(), employee_id: michelle.id)
+cooler = Task.create(content: "clean the key cooler", due_date: Date.tomorrow(), user_id: hadley.id, owner_id: kipp.id)
+fill = Task.create(content: "fill kegs", due_date: Date.tomorrow(), user_id: cory.id, owner_id: scott.id)
+some = Task.create(content: "schedule social media through next week", due_date: Date.tomorrow(), user_id: michelle.id, owner_id: frank.id)
+design = Task.create(content: "finish can design", due_date: Date.tomorrow(), user_id: michelle.id, owner_id: frank.id)
+
+plan = Task.create(content: "plan launch", due_date: Date.tomorrow(), user_id: frank.id, owner_id: frank.id)
+eval = Task.create(content: "finish my self evaluation", due_date: Date.tomorrow(), user_id: michelle.id, owner_id: michelle.id)
 
 # comments
-Comment.create(content: "I'm half way through", task_id: design.id, employee_id: michelle.id)
-Comment.create(content: "great!", task_id: design.id, supervisor_id: frank.id)
+Comment.create(content: "I'm half way through", task_id: design.id, user_id: michelle.id)
+Comment.create(content: "great!", task_id: design.id, user_id: frank.id)
 

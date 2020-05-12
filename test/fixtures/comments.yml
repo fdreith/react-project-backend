@@ -2,14 +2,10 @@
 
 one:
   content: MyString
-  due_date: 2020-05-11
-  completed: false
+  task: one
   user: one
-  owner_id: 1
 
 two:
   content: MyString
-  due_date: 2020-05-11
-  completed: false
+  task: two
   user: two
-  owner_id: 1

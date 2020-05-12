@@ -1,14 +1,8 @@
 class ApplicationController < ActionController::API
-  include ActionController::Cookies
+  include ::ActionController::Cookies
 
   def current_user
-    binding.pry
-    byebug
-    if session[:employee_id]
-      Employee.find_by(id: session[:employee_id])
-    else session[:supervisor_id]
-      Supervisor.find_by(id: session[:supervisor_id])
-    end
+    User.find_by(id: sessions[:user_id])
 
   end
 

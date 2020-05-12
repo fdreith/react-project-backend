@@ -36,6 +36,10 @@ module ReactProjectBackend
 
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore, key: '_cookie_name', expire_after: 14.days, httponly: true
+
+    # config.middleware.use ActionDispatch::Cookies 
+    # config.middleware.use ActionDispatch::Session::CookieStore, key: '_cookie_name', expire_after: 14.days, httponly:true
+
   end
 end
 
