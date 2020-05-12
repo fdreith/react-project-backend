@@ -1,4 +1,4 @@
-class Api::V1::CommentsController < ApplicationController
+class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :update, :destroy]
 
   # GET /comments
@@ -46,6 +46,6 @@ class Api::V1::CommentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def comment_params
-      params.require(:comment).permit(:task_id, :employee_id, :supervisor_id)
+      params.require(:comment).permit(:content, :task_id, :user_id)
     end
 end

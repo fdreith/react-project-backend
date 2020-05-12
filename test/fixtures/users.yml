@@ -5,9 +5,11 @@ one:
   email: MyString
   password_digest: MyString
   department: one
+  supervisor: false
 
 two:
   name: MyString
   email: MyString
   password_digest: MyString
   department: two
+  supervisor: false

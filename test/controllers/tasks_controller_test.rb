@@ -12,7 +12,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create task" do
     assert_difference('Task.count') do
-      post tasks_url, params: { task: { compleeted: @task.compleeted, content: @task.content, due_date: @task.due_date, employee_id: @task.employee_id, supervisor_id: @task.supervisor_id } }, as: :json
+      post tasks_url, params: { task: { completed: @task.completed, content: @task.content, due_date: @task.due_date, owner_id: @task.owner_id, user_id: @task.user_id } }, as: :json
     end
 
     assert_response 201
@@ -24,7 +24,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update task" do
-    patch task_url(@task), params: { task: { compleeted: @task.compleeted, content: @task.content, due_date: @task.due_date, employee_id: @task.employee_id, supervisor_id: @task.supervisor_id } }, as: :json
+    patch task_url(@task), params: { task: { completed: @task.completed, content: @task.content, due_date: @task.due_date, owner_id: @task.owner_id, user_id: @task.user_id } }, as: :json
     assert_response 200
   end
 

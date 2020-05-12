@@ -1,4 +1,4 @@
-class Api::V1::TasksController < ApplicationController
+class TasksController < ApplicationController
   before_action :set_task, only: [:show, :update, :destroy]
 
   # GET /tasks
@@ -46,6 +46,6 @@ class Api::V1::TasksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:content, :due_date, :compleeted, :employee_id, :supervisor_id)
+      params.require(:task).permit(:content, :due_date, :completed, :user_id, :owner_id)
     end
 end
