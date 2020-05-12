@@ -1,4 +1,4 @@
-class TasksController < ApplicationController
+class Api::V1::TasksController < ApplicationController
   before_action :set_task, only: [:show, :update, :destroy]
 
   # GET /tasks
