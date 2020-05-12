@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
+
+  validates :name, :email, :department_id
   
   belongs_to :department
   has_many :tasks
