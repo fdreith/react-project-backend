@@ -11,22 +11,22 @@ production = Department.create(name: "Production")
 taproom = Department.create(name: "Taproom")
 
 # SUPERVISORS
-frank = User.create(name: "Frank", email: "f@f.com", password_digest: "password", department_id: marketing.id, supervisor: true)
-scott = User.create(name: "Scott", email: "s@s.com", password_digest: "password", department_id: production.id, supervisor: true)
-kipp = User.create(name: "Kipp", email: "k@k.com", password_digest: "password", department_id: taproom.id, supervisor: true)
+frank = User.create(name: "Frank", email: "f@f.com", password: "password", department_id: marketing.id, supervisor: true)
+scott = User.create(name: "Scott", email: "s@s.com", password: "password", department_id: production.id, supervisor: true)
+kipp = User.create(name: "Kipp", email: "k@k.com", password: "password", department_id: taproom.id, supervisor: true)
 
 # EMPLOYEES
-michelle = User.create(name: "Michelle", email: "m@m.com", password_digest: "password", department_id: marketing.id)
-lauren = User.create(name: "Lauren", email: "l@l.com", password_digest: "password", department_id: marketing.id)
-tara = User.create(name: "Tara", email: "t@t.com", password_digest: "password", department_id: marketing.id)
+michelle = User.create(name: "Michelle", email: "m@m.com", password: "password", department_id: marketing.id)
+lauren = User.create(name: "Lauren", email: "l@l.com", password: "password", department_id: marketing.id)
+tara = User.create(name: "Tara", email: "t@t.com", password: "password", department_id: marketing.id)
 
-alex = User.create(name: "Alex", email: "a@a.com", password_digest: "password", department_id: production.id)
-cory = User.create(name: "Cory", email: "c@c.com", password_digest: "password", department_id: production.id)
-nick = User.create(name: "Nick", email: "n@n.com", password_digest: "password", department_id: production.id)
+alex = User.create(name: "Alex", email: "a@a.com", password: "password", department_id: production.id)
+cory = User.create(name: "Cory", email: "c@c.com", password: "password", department_id: production.id)
+nick = User.create(name: "Nick", email: "n@n.com", password: "password", department_id: production.id)
 
-ed = User.create(name: "Ed", email: "e@e.com", password_digest: "password", department_id: taproom.id)
-hadley = User.create(name: "Hadley", email: "h@h.com", password_digest: "password", department_id: taproom.id)
-breanna = User.create(name: "Breanna", email: "b@b.com", password_digest: "password", department_id: taproom.id)
+ed = User.create(name: "Ed", email: "e@e.com", password: "password", department_id: taproom.id)
+hadley = User.create(name: "Hadley", email: "h@h.com", password: "password", department_id: taproom.id)
+breanna = User.create(name: "Breanna", email: "b@b.com", password: "password", department_id: taproom.id)
 
 # Tasks
 cooler = Task.create(content: "clean the key cooler", due_date: Date.tomorrow(), user_id: hadley.id, owner_id: kipp.id)
