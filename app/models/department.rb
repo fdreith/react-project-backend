@@ -1,5 +1,5 @@
 class Department < ApplicationRecord
   has_many :users
 
-  validates :name
+  validates :name, presence: true
 end
