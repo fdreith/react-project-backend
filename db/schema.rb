@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_05_11_230335) do
   create_table "tasks", force: :cascade do |t|
     t.string "content"
     t.date "due_date"
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.integer "user_id", null: false
     t.integer "owner_id"
     t.datetime "created_at", precision: 6, null: false
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_05_11_230335) do
     t.string "email"
     t.string "password_digest"
     t.integer "department_id", null: false
-    t.boolean "supervisor"
+    t.boolean "supervisor", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["department_id"], name: "index_users_on_department_id"
