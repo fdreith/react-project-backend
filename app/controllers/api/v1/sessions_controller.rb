@@ -4,7 +4,6 @@ class Api::V1::SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email])
     
     if @user && @user.authenticate(params[:session][:password])
-      binding.pry
       session[:user_id] = @user.id
       render json: @user, status: :ok
     else
