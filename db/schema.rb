@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2020_05_11_230335) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "content"
-    t.date "due_date"
+    t.string "due_date"
     t.boolean "completed", default: false
     t.integer "user_id", null: false
     t.integer "owner_id"

@@ -29,13 +29,13 @@ hadley = User.create(name: "Hadley", email: "h@h.com", password: "password", dep
 breanna = User.create(name: "Breanna", email: "b@b.com", password: "password", department_id: taproom.id)
 
 # Tasks
-cooler = Task.create(content: "clean the key cooler", due_date: Date.tomorrow(), user_id: hadley.id, owner_id: kipp.id)
-fill = Task.create(content: "fill kegs", due_date: Date.tomorrow(), user_id: cory.id, owner_id: scott.id)
-some = Task.create(content: "schedule social media through next week", due_date: Date.tomorrow(), user_id: michelle.id, owner_id: frank.id)
-design = Task.create(content: "finish can design", due_date: Date.tomorrow(), user_id: michelle.id, owner_id: frank.id)
+cooler = Task.create(content: "clean the key cooler", due_date: "Wed Jun 03 2020 09:33:16 GMT-0700 (Pacific Daylight Time)", user_id: hadley.id, owner_id: kipp.id)
+fill = Task.create(content: "fill kegs", due_date: "Wed Jun 03 2020 09:33:16 GMT-0700 (Pacific Daylight Time)", user_id: cory.id, owner_id: scott.id)
+some = Task.create(content: "schedule social media through next week", due_date: "Wed Jun 03 2020 09:33:16 GMT-0700 (Pacific Daylight Time)", user_id: michelle.id, owner_id: frank.id)
+design = Task.create(content: "finish can design", due_date: "Wed Jun 03 2020 09:33:16 GMT-0700 (Pacific Daylight Time)", user_id: michelle.id, owner_id: frank.id)
 
-plan = Task.create(content: "plan launch", due_date: Date.tomorrow(), user_id: frank.id, owner_id: frank.id)
-eval = Task.create(content: "finish my self evaluation", due_date: Date.tomorrow(), user_id: michelle.id, owner_id: michelle.id)
+plan = Task.create(content: "plan launch", due_date: "Wed Jun 03 2020 09:33:16 GMT-0700 (Pacific Daylight Time)", user_id: frank.id, owner_id: frank.id)
+eval = Task.create(content: "finish my self evaluation", due_date: "Wed Jun 03 2020 09:33:16 GMT-0700 (Pacific Daylight Time)", user_id: michelle.id, owner_id: michelle.id)
 
 # comments
 Comment.create(content: "I'm half way through", task_id: design.id, user_id: michelle.id)
