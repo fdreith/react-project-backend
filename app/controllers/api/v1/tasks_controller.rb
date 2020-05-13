@@ -5,12 +5,12 @@ class Api::V1::TasksController < ApplicationController
   def index
     @tasks = Task.all
 
-    render json: @tasks
+    render json: TaskSerializer.new(@tasks).serialized_json
   end
 
   # GET /tasks/1
   def show
-    render json: @task
+    render json: TaskSerializer.new(@task).serialized_json
   end
 
   # POST /tasks
@@ -18,7 +18,7 @@ class Api::V1::TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      render json: @task, status: :created
+      render json: TaskSerializer.new(@task).serialized_json, status: :created
     else
       render json: @task.errors, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class Api::V1::TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   def update
     if @task.update(task_params)
-      render json: @task
+      render json: TaskSerializer.new(@task).serialized_json
     else
       render json: @task.errors, status: :unprocessable_entity
     end

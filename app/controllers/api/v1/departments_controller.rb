@@ -5,12 +5,12 @@ class Api::V1::DepartmentsController < ApplicationController
   def index
     @departments = Department.all
 
-    render json: @departments
+    render json: DepartmentSerializer.new(@departments).serialized_json
   end
 
   # GET /departments/1
   def show
-    render json: @department
+    render json: DepartmentSerializer.new(@department).serialized_json
   end
 
   # POST /departments
@@ -18,7 +18,7 @@ class Api::V1::DepartmentsController < ApplicationController
     @department = Department.new(department_params)
 
     if @department.save
-      render json: @department, status: :created, location: @department
+      render json: DepartmentSerializer.new(@department).serialized_json, status: :created
     else
       render json: @department.errors, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class Api::V1::DepartmentsController < ApplicationController
   # PATCH/PUT /departments/1
   def update
     if @department.update(department_params)
-      render json: @department
+      render json: DepartmentSerializer.new(@department).serialized_json
     else
       render json: @department.errors, status: :unprocessable_entity
     end
