@@ -38,7 +38,7 @@ class Api::V1::TasksController < ApplicationController
     if @task.destroy
       render json: {message: "Entry Destroyed."}, status: :ok
     else
-      render json: {errors: "Entry Failed To Destroy."}, status: :unprocessable_entity
+      render json: {error: "Entry Failed To Destroy."}, status: :unprocessable_entity
     end
   end
 
