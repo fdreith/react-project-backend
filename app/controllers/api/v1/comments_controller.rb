@@ -5,12 +5,12 @@ class Api::V1::CommentsController < ApplicationController
   def index
     @comments = Comment.all
 
-    render json: @comments
+    render json: CommentSerializer.new(@comments).serialized_json
   end
 
   # GET /comments/1
   def show
-    render json: @comment
+    render json: CommentSerializer.new(@comment).serialized_json
   end
 
   # POST /comments
@@ -18,7 +18,7 @@ class Api::V1::CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      render json: @comment, status: :created
+      render json: CommentSerializer.new(@comment).serialized_json, status: :created
     else
       render json: @comment.errors, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class Api::V1::CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   def update
     if @comment.update(comment_params)
-      render json: @comment
+      render json: CommentSerializer.new(@comment).serialized_json
     else
       render json: @comment.errors, status: :unprocessable_entity
     end
@@ -35,7 +35,11 @@ class Api::V1::CommentsController < ApplicationController
 
   # DELETE /comments/1
   def destroy
-    @comment.destroy
+    if @comment.destroy
+      render json: {message: "Comment Destroyed."}, status: :ok
+    else
+      render json: {error: "Comment Failed To Destroy."}, status: :unprocessable_entity
+    end
   end
 
   private
