@@ -1,6 +1,6 @@
 class CommentSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :id, :content
-  belongs_to :task
+  attributes :id, :content, :task_id, :user
+
   belongs_to :user
 end
