@@ -5,6 +5,4 @@ class UserSerializer
   has_many :tasks
   has_many :assigned_tasks
 
-
-
 end
