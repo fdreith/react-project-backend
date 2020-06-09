@@ -91,6 +91,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
+    pg (1.2.3)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -161,6 +162,7 @@ DEPENDENCIES
   byebug
   fast_jsonapi
   listen (~> 3.2)
+  pg
   pry (~> 0.12.2)
   puma (~> 4.1)
   rack-cors
