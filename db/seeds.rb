@@ -28,21 +28,33 @@ ed = User.create(name: "Ed", email: "e@e.com", password: "password", department_
 hadley = User.create(name: "Hadley", email: "h@h.com", password: "password", department_id: taproom.id)
 breanna = User.create(name: "Breanna", email: "b@b.com", password: "password", department_id: taproom.id)
 
-# Tasks
-cooler = Task.create(content: "clean the key cooler", due_date: "Wed Jun 03 2020 09:33:16 GMT-0700 (Pacific Daylight Time)", user_id: hadley.id, owner_id: kipp.id)
-fill = Task.create(content: "fill kegs", due_date: "Wed Jun 03 2020 09:33:16 GMT-0700 (Pacific Daylight Time)", user_id: cory.id, owner_id: scott.id)
-some = Task.create(content: "schedule social media through next week", due_date: "Wed Jun 03 2020 09:33:16 GMT-0700 (Pacific Daylight Time)", user_id: michelle.id, owner_id: frank.id)
-design = Task.create(content: "finish can design", due_date: "Wed Jun 03 2020 09:33:16 GMT-0700 (Pacific Daylight Time)", user_id: michelle.id, owner_id: frank.id)
+# Groups
+brewery = Group.create(name: "Beer Brewery", password_digest: "password", owner_id: frank.id)
 
-plan = Task.create(content: "plan launch", due_date: "Wed Jun 03 2020 09:33:16 GMT-0700 (Pacific Daylight Time)", user_id: frank.id, owner_id: frank.id)
-eval = Task.create(content: "finish my self evaluation", due_date: "Wed Jun 03 2020 09:33:16 GMT-0700 (Pacific Daylight Time)", user_id: michelle.id, owner_id: michelle.id)
+# Tasks
+cooler = Task.create(content: "clean the key cooler", due_date: "Wed Jun 03 2020 09:33:16 GMT-0700 (Pacific Daylight Time)", user_id: hadley.id, owner_id: kipp.id, group_id: brewery.id)
+fill = Task.create(content: "fill kegs", due_date: "Wed Jun 03 2020 09:33:16 GMT-0700 (Pacific Daylight Time)", user_id: cory.id, owner_id: scott.id, group_id: brewery.id)
+some = Task.create(content: "schedule social media through next week", due_date: "Wed Jun 03 2020 09:33:16 GMT-0700 (Pacific Daylight Time)", user_id: michelle.id, owner_id: frank.id, group_id: brewery.id)
+design = Task.create(content: "finish can design", due_date: "Wed Jun 03 2020 09:33:16 GMT-0700 (Pacific Daylight Time)", user_id: michelle.id, owner_id: frank.id, group_id: brewery.id)
+
+plan = Task.create(content: "plan launch", due_date: "Wed Jun 03 2020 09:33:16 GMT-0700 (Pacific Daylight Time)", user_id: frank.id, owner_id: frank.id, group_id: brewery.id)
+eval = Task.create(content: "finish my self evaluation", due_date: "Wed Jun 03 2020 09:33:16 GMT-0700 (Pacific Daylight Time)", user_id: michelle.id, owner_id: michelle.id, group_id: brewery.id)
 
 # comments
 Comment.create(content: "I'm half way through", task_id: design.id, user_id: michelle.id)
 Comment.create(content: "great!", task_id: design.id, user_id: frank.id)
 
-# Groups
-brewery = Group.create(name: "Beer Brewery", password_digest: "password", owner: frank.id)
 
 # User Groups
-UserGroup.create(user: frank.id, group: brewery.id)
+GroupUser.create(user_id: frank.id, group_id: brewery.id)
+GroupUser.create(user_id: kipp.id, group_id: brewery.id)
+GroupUser.create(user_id: scott.id, group_id: brewery.id)
+GroupUser.create(user_id: michelle.id, group_id: brewery.id)
+GroupUser.create(user_id: lauren.id, group_id: brewery.id)
+GroupUser.create(user_id: tara.id, group_id: brewery.id)
+GroupUser.create(user_id: alex.id, group_id: brewery.id)
+GroupUser.create(user_id: cory.id, group_id: brewery.id)
+GroupUser.create(user_id: nick.id, group_id: brewery.id)
+GroupUser.create(user_id: ed.id, group_id: brewery.id)
+GroupUser.create(user_id: hadley.id, group_id: brewery.id)
+GroupUser.create(user_id: breanna.id, group_id: brewery.id)

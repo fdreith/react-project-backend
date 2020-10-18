@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_11_230335) do
+ActiveRecord::Schema.define(version: 2020_10_10_203830) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -28,6 +28,22 @@ ActiveRecord::Schema.define(version: 2020_05_11_230335) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.string "password_digest"
+    t.integer "owner_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_id"], name: "index_groups_on_owner_id"
+  end
+
+  create_table "groups_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "group_id", null: false
+    t.index ["group_id", "user_id"], name: "index_groups_users_on_group_id_and_user_id"
+    t.index ["user_id", "group_id"], name: "index_groups_users_on_user_id_and_group_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "content"
     t.string "due_date"
@@ -36,6 +52,8 @@ ActiveRecord::Schema.define(version: 2020_05_11_230335) do
     t.integer "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "group_id", null: false
+    t.index ["group_id"], name: "index_tasks_on_group_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
@@ -52,6 +70,8 @@ ActiveRecord::Schema.define(version: 2020_05_11_230335) do
 
   add_foreign_key "comments", "tasks"
   add_foreign_key "comments", "users"
+  add_foreign_key "groups", "owners"
+  add_foreign_key "tasks", "groups"
   add_foreign_key "tasks", "users"
   add_foreign_key "users", "departments"
 end
