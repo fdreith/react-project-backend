@@ -41,3 +41,8 @@ eval = Task.create(content: "finish my self evaluation", due_date: "Wed Jun 03 2
 Comment.create(content: "I'm half way through", task_id: design.id, user_id: michelle.id)
 Comment.create(content: "great!", task_id: design.id, user_id: frank.id)
 
+# Groups
+brewery = Group.create(name: "Beer Brewery", password_digest: "password", owner: frank.id)
+
+# User Groups
+UserGroup.create(user: frank.id, group: brewery.id)
