@@ -3,7 +3,7 @@ class CreateGroups < ActiveRecord::Migration[6.0]
     create_table :groups do |t|
       t.string :name
       t.string :password_digest
-      t.belongs_to :owner, null: false, foreign_key: true
+      t.integer :owner_id, null: false, foreign_key: true
 
       t.timestamps
     end

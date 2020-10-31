@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :user_groups
   post "/api/v1/login", to: "api/v1/sessions#create"
   post "/api/v1/signup", to: "api/v1/users#create"
   delete "/api/v1/logout", to: "api/v1/sessions#destroy"
